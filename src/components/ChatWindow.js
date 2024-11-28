@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Message } from './Message';
+import Message from './Message';
 import styles from './ChatWindow.module.css';
 import { useChat } from '../context/ChatContext';
 

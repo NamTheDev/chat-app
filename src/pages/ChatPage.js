@@ -1,7 +1,7 @@
 import React from 'react';
-import { ChatWindow } from '../components/ChatWindow';
-import { UserList } from '../components/UserList';
-import { ChatInput } from '../components/ChatInput';
+import ChatWindow from '../components/ChatWindow';
+import UserList from '../components/UserList';
+import ChatInput from '../components/ChatInput';
 import { useChat } from '../context/ChatContext';
 import styles from './ChatPage.module.css';
 
