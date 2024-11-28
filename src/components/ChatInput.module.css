@@ -1,25 +1,41 @@
 .chatInput {
   display: flex;
   padding: 10px;
-  background-color: var(--background-color); /* Dark background */
-  border-top: 1px solid #333; /* Subtle border in dark mode */
+  background-color: #1e1e1e;
+  /* Dark background for input area */
+  border-top: 1px solid #333333;
 }
 
 .inputField {
   flex-grow: 1;
-  padding: 8px;
-  border: 1px solid #555; /* Darker border */
+  padding: 10px;
+  border: 1px solid #444444;
   border-radius: 4px;
-  background-color: #222; /* Slightly lighter background for input */
-  color: var(--text-color);
+  margin-right: 10px;
+  background-color: #2a2a2a;
+  /* Slightly lighter for input field */
+  color: #ffffff;
+}
+
+.inputField::placeholder {
+  color: #aaaaaa;
 }
 
 .sendButton {
-  padding: 8px 16px;
-  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
   border: none;
   border-radius: 4px;
-  background-color: var(--primary-color);
-  color: var(--text-color);
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sendButton:disabled {
+  background-color: #555555;
+  cursor: not-allowed;
+}
+
+.sendButton:hover:not(:disabled) {
+  background-color: #0056b3;
 }

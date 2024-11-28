@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import groq from '../services/groqClient';
+import groq from '../services/groqClient'; // Import the groq client
 
 const ChatContext = createContext();
 
@@ -7,11 +7,10 @@ export const ChatProvider = ({ children }) => {
     const [messages, setMessages] = useState([
         { sender: 'Bot', text: 'Welcome to the chat!' },
     ]);
-    const [users, setUsers] = useState(['Bot', 'User1']);
-    const [currentUser, setCurrentUser] = useState('User1');
+    const currentUser = 'You';
     const [isLoading, setIsLoading] = useState(false); // Add loading state
     const [error, setError] = useState(null); // Add error state
-    const [selectedModel, setSelectedModel] = useState('mixtral-8x7b-32768'); // Default model
+    const [selectedModel, setSelectedModel] = useState('gemma2-9b-it'); // Default model
 
     const sendMessage = async (message) => {
         try {
@@ -23,7 +22,7 @@ export const ChatProvider = ({ children }) => {
                 model: selectedModel, // Use the selected model
             });
 
-            const botMessage = { sender: 'Bot', text: response.choices[0].message.content };
+            const botMessage = { sender: selectedModel, text: response.choices[0].message.content };
             setMessages((prevMessages) => [...prevMessages, botMessage]); // Add bot message
         } catch (err) {
             setError(err); // Set error if API call fails
@@ -37,12 +36,11 @@ export const ChatProvider = ({ children }) => {
     const value = {
         messages,
         sendMessage,
-        users,
-        currentUser,
         isLoading,
+        currentUser,
         error,
-        selectedModel,
-        setSelectedModel,
+        selectedModel,      // Include in context
+        setSelectedModel,   // Include in context
     };
 
     return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;

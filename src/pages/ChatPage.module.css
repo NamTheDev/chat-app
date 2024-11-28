@@ -1,16 +1,25 @@
 .chatPage {
   display: flex;
-  height: 100vh;
-}
-
-.userListContainer {
-  width: 20%;
-  border-right: 1px solid #ccc;
-  padding: 10px;
-}
-
-.chatContainer {
-  width: 80%;
-  display: flex;
   flex-direction: column;
+  height: 100vh;
+  background-color: #121212;
+  /* Dark background for full-screen dark theme */
+  color: #ffffff;
+  /* Light text for readability */
+}
+
+.modelSelector {
+  padding: 10px;
+  border-bottom: 1px solid #333333;
+}
+
+.chatWindow {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.chatInput {
+  padding: 10px;
+  border-top: 1px solid #333333;
 }
