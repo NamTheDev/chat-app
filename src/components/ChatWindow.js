@@ -4,7 +4,7 @@ import styles from './ChatWindow.module.css';
 import { useChat } from '../context/ChatContext';
 
 const ChatWindow = () => {
-    const { messages } = useChat();
+    const { messages, error } = useChat(); // Get error from context
     const messagesEndRef = useRef(null);
 
     const scrollToBottom = () => {
@@ -15,6 +15,7 @@ const ChatWindow = () => {
 
     return (
         <div className={styles.chatWindow}>
+            {error && <div className={styles.error}>Error: {error.message}</div>} {/* Display error message */}
             {messages.map((message, index) => (
                 <Message key={index} message={message} />
             ))}

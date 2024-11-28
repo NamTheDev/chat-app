@@ -6,3 +6,11 @@
   display: flex;
   flex-direction: column;
 }
+
+.error {
+    color: red;
+    padding: 10px;
+    background-color: #ffe0e0;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 10px;
+}
