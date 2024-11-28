@@ -1,20 +1,17 @@
 import React from 'react';
 import ChatWindow from '../components/ChatWindow';
-import UserList from '../components/UserList';
 import ChatInput from '../components/ChatInput';
-import { useChat } from '../context/ChatContext';
+import UserList from '../components/UserList';
+import ModelSelector from '../components/ModelSelector'; // Import the new component
 import styles from './ChatPage.module.css';
 
 const ChatPage = () => {
-  const { messages, users } = useChat();
-
   return (
     <div className={styles.chatPage}>
-      <div className={styles.userListContainer}>
-        <UserList users={users} />
-      </div>
-      <div className={styles.chatContainer}>
-        <ChatWindow messages={messages} />
+      <UserList />
+      <div className={styles.chatArea}>
+        <ModelSelector /> {/* Include the ModelSelector component */}
+        <ChatWindow />
         <ChatInput />
       </div>
     </div>

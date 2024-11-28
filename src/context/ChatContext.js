@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import groq from '../services/groqClient'; // Import the groq client
+import groq from '../services/groqClient';
 
 const ChatContext = createContext();
 
@@ -11,6 +11,7 @@ export const ChatProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState('User1');
     const [isLoading, setIsLoading] = useState(false); // Add loading state
     const [error, setError] = useState(null); // Add error state
+    const [selectedModel, setSelectedModel] = useState('mixtral-8x7b-32768'); // Default model
 
     const sendMessage = async (message) => {
         try {
@@ -19,7 +20,7 @@ export const ChatProvider = ({ children }) => {
 
             const response = await groq.chat.completions.create({
                 messages: [{ role: 'user', content: message.text }],
-                model: 'mixtral-8x7b-32768', // Or any other model you want to use
+                model: selectedModel, // Use the selected model
             });
 
             const botMessage = { sender: 'Bot', text: response.choices[0].message.content };
@@ -38,8 +39,10 @@ export const ChatProvider = ({ children }) => {
         sendMessage,
         users,
         currentUser,
-        isLoading, // Include loading state in context
-        error // Include error state in context
+        isLoading,
+        error,
+        selectedModel,
+        setSelectedModel,
     };
 
     return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;

@@ -1,5 +1,7 @@
 .userList {
-    padding: 10px;
+  background-color: #222; /* Darker background for user list */
+  padding: 10px;
+  border-right: 1px solid #333; /* Subtle border */
 }
 
 .userList ul {

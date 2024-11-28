@@ -1,3 +1,17 @@
+:root {
+  --primary-color: #673ab7; /* Example primary color for dark theme */
+  --secondary-color: #9c27b0; /* Example secondary color */
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  font-family: 'Roboto', sans-serif; /* Example font */
+}
+
 .App {
   text-align: center;
 }
