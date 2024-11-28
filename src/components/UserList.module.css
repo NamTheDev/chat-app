@@ -1,0 +1,20 @@
+.userList {
+    padding: 10px;
+}
+
+.userList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.userList li {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.userList .currentUser {
+    background-color: #e0f2f7;
+    font-weight: bold;
+}
